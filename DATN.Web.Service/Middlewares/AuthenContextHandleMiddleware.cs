@@ -89,7 +89,7 @@ namespace DATN.Web.Service.Middlewares
                 if (!string.IsNullOrEmpty(authHeader))
                 {
                     //string token = authHeader.Split(new char[] { ' ' })[1];
-                    string token = authHeader;
+                    string token = authHeader.Replace("Bearer ", string.Empty);
                     var handled = new JwtSecurityTokenHandler();
                     var jsonToken = handled.ReadJwtToken(token);
                     var payload = jsonToken.Payload;
